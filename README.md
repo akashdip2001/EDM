@@ -4,14 +4,14 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 
 ---
 
-### **Step 1: Understand the Working Principle of EDM**
+### **Step 1: Working Principle of EDM**
 - EDM works by generating **electrical sparks** to erode metal surfaces.
 - It requires a **power supply**, an **electrode**, a **workpiece**, and a **dielectric fluid**.
 - The **electrode (cathode)** and **workpiece (anode)** are submerged in **dielectric fluid**, and a **high-frequency electrical discharge** removes metal from the workpiece.
 
 ---
 
-### **Step 2: Gather Required Components & Specifications**
+### **Step 2: Required Components & Specifications**
 | **Component**        | **Specification** |
 |----------------------|------------------|
 | **Step-down Transformer** | Converts **230V AC to 50-100V AC** |
@@ -32,11 +32,11 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
    - Converts **230V AC to 12-24V AC**.
    - Must have **multiple voltage outputs** for flexibility.
    
-2. **Bridge Rectifier Setup**  
+2. **Bridge Rectifier**  
    - Converts **AC to DC** for controlled spark generation.
    - Choose a **50A diode bridge** for sufficient power handling.
    
-3. **Capacitor for Smoothing DC Output**  
+3. **Capacitor (for Smoothing DC Output)**  
    - Use **450V, 4.8µF capacitor** to stabilize voltage and reduce ripples.
 
 ---
@@ -87,9 +87,8 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 
 ## **EDM Circuit Diagram Explanation with Cost**  
 
-I'll provide a **detailed step-by-step explanation of the EDM machine’s circuit** with each component's **specifications, function, and estimated cost** in the Indian market.  
-
 ---
+<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/b45aef95-84f2-40f7-8d21-2010b3014c4d">
 
 ### **Step 1: Step-Down Transformer**  
 **Component:** **230V to 24V Step-Down Transformer**  
@@ -103,6 +102,7 @@ I'll provide a **detailed step-by-step explanation of the EDM machine’s circui
 - **Secondary winding** gives **24V-0-24V AC output**, which will be converted to DC.  
 
 ---
+<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/1495df6d-fd6a-4783-b58c-3597f80c015e">
 
 ### **Step 2: Bridge Rectifier (AC to DC Conversion)**  
 **Component:** **50A Bridge Rectifier Module**  
@@ -129,6 +129,7 @@ I'll provide a **detailed step-by-step explanation of the EDM machine’s circui
 - **Negative terminal** to the **ground (0V)**.  
 
 ---
+<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/7fe7622a-7813-4b56-bbf3-e47272180f7e">
 
 ### **Step 4: Pulse Generator for Controlled Spark Generation**  
 **Component:** **555 Timer IC or PWM Controller**  
@@ -143,6 +144,7 @@ I'll provide a **detailed step-by-step explanation of the EDM machine’s circui
 - **GND (Ground):** Connected to **circuit ground**.  
 
 ---
+<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/19c66fd7-d57d-4eec-997a-40d5b123238a">
 
 ### **Step 5: Power MOSFET for Switching the Spark Circuit**  
 **Component:** **IRF540N MOSFET (N-Channel, 100V, 33A)**  
