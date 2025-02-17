@@ -81,9 +81,11 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 - The **machine does not need to be industry-grade**, but it should **demonstrate material removal effectively**.  
 
 ---
----
 
-## **Step-by-Step EDM Circuit Diagram Explanation with Cost**  
+![IMG_20250217_190007](https://github.com/user-attachments/assets/ddcb6b9c-c33c-4f64-a3bf-0bbf75d68e6c)
+
+
+## **EDM Circuit Diagram Explanation with Cost**  
 
 I'll provide a **detailed step-by-step explanation of the EDM machine’s circuit** with each component's **specifications, function, and estimated cost** in the Indian market.  
 
