@@ -129,7 +129,7 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 - **Negative terminal** to the **ground (0V)**.  
 
 ---
-<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/7fe7622a-7813-4b56-bbf3-e47272180f7e">
+<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/af5b9919-bcf2-4228-be6f-a380bc1c647e">
 
 ### **Step 4: Pulse Generator for Controlled Spark Generation**  
 **Component:** **555 Timer IC or PWM Controller**  
@@ -142,6 +142,11 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 - **VCC (Power Supply):** Connected to **24V DC** output from the rectifier.  
 - **Output Pin:** Controls **MOSFET** for spark discharge.  
 - **GND (Ground):** Connected to **circuit ground**.  
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2237f902-f3ab-4201-8e57-e4670ee7a983" alt="Image 1" width="45%" style="margin-right: 10px;"/>
+  <img src="https://github.com/user-attachments/assets/bdc535e9-8f96-4332-94c1-d742354fe2b9" alt="Image 2" width="45%" style="margin-right: 10px;"/>
+</p>
 
 ---
 <img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/19c66fd7-d57d-4eec-997a-40d5b123238a">
