@@ -1,5 +1,9 @@
 # EDM
 
+### EDM using 555
+
+https://github.com/user-attachments/assets/0ce91ec2-dd03-4595-b938-38a47e7c434d
+
 Developing a functional **EDM (Electric Discharge Machine)** for cutting thin metal sheets:  
 
 ---
@@ -87,8 +91,10 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 
 ## **EDM Circuit Diagram Explanation with Cost**  
 
+![555](https://github.com/user-attachments/assets/2ddd5e81-8484-4f8a-9b31-bb07f5568246)
+
 ---
-<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/b45aef95-84f2-40f7-8d21-2010b3014c4d">
+<img align="right" alt="" width="300" src="https://github.com/user-attachments/assets/b45aef95-84f2-40f7-8d21-2010b3014c4d">
 
 ### **Step 1: Step-Down Transformer**  
 **Component:** **230V to 24V Step-Down Transformer**  
@@ -102,7 +108,7 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 - **Secondary winding** gives **24V-0-24V AC output**, which will be converted to DC.  
 
 ---
-<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/1495df6d-fd6a-4783-b58c-3597f80c015e">
+<img align="right" alt="" width="300" src="https://github.com/user-attachments/assets/1495df6d-fd6a-4783-b58c-3597f80c015e">
 
 ### **Step 2: Bridge Rectifier (AC to DC Conversion)**  
 **Component:** **50A Bridge Rectifier Module**  
@@ -129,7 +135,7 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 - **Negative terminal** to the **ground (0V)**.  
 
 ---
-<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/af5b9919-bcf2-4228-be6f-a380bc1c647e">
+<img align="right" alt="" width="300" src="https://github.com/user-attachments/assets/af5b9919-bcf2-4228-be6f-a380bc1c647e">
 
 ### **Step 4: Pulse Generator for Controlled Spark Generation**  
 **Component:** **555 Timer IC or PWM Controller**  
@@ -149,7 +155,7 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 </p>
 
 ---
-<img align="right" alt="GitHub Foundations exam logo" width="300" src="https://github.com/user-attachments/assets/19c66fd7-d57d-4eec-997a-40d5b123238a">
+<img align="right" alt="" width="300" src="https://github.com/user-attachments/assets/19c66fd7-d57d-4eec-997a-40d5b123238a">
 
 ### **Step 5: Power MOSFET for Switching the Spark Circuit**  
 **Component:** **IRF540N MOSFET (N-Channel, 100V, 33A)**  
