@@ -221,3 +221,6 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 9. **Pump continuously circulates the dielectric fluid**
 
 ---
+
+https://github.com/user-attachments/assets/d262c55d-2951-4910-b1d7-bc20f60b06b1
+
