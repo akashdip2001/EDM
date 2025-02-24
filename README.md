@@ -229,3 +229,4 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 
 https://github.com/user-attachments/assets/d262c55d-2951-4910-b1d7-bc20f60b06b1
 
+https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
