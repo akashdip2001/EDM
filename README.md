@@ -1,6 +1,6 @@
 # EDM
 
-### EDM using 555 🌀
+### 🌕 EDM using 555 🌀 ( works in : 10 volt )
 
 https://github.com/user-attachments/assets/0ce91ec2-dd03-4595-b938-38a47e7c434d
 
@@ -287,4 +287,58 @@ https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
 ### 3. Pulse Duration and Duty Cycle Tuning
 
 - Modify the resistors (10kΩ, 1kΩ) and capacitor (100µF) to adjust the pulse width and frequency for better discharge performance.
-<\details>
+
+</details>
+
+---
+---
+
+## 🌕 EDM using 555 ( works in : 300 volt )
+
+### EDM Circuit for Cutting a 1mm Metal Sheet
+### Requirements
+
+1. High Voltage (50V–300V) for Breakdown of Metal
+2. High Current Pulses (~5A–20A) for Effective Erosion
+3. Controlled Pulse Timing (Microsecond to Millisecond)
+4. Dielectric Fluid (Oil or Water) to Cool the Electrode and Workpiece
+5. A Discharge Circuit (MOSFET/IGBT) to Control Sparks
+
+---
+
+Circuit Components Needed
+
+---
+
+How It Works
+
+1. Charging Phase:
+
+- The capacitor charges to high voltage (50V-300V).
+- The resistor controls the charging speed.
+
+
+2. Discharge Phase (Cutting Metal):
+
+- The MOSFET/IGBT switches ON for a short duration (microseconds to milliseconds).
+- High voltage discharges across the electrode and metal workpiece, creating sparks.
+- Metal erodes due to high-energy sparks.
+- Dielectric fluid removes debris and cools the workpiece.
+
+---
+
+Things to Consider
+
+✅ Use a Pulse Width Modulation (PWM) Circuit
+
+- A 555 Timer or Arduino can generate pulses for better control.
+
+✅ Heat Management
+
+- Use a heatsink for the MOSFET/IGBT.
+- Submerge the workpiece and electrode in EDM oil or water to cool the cutting area.
+
+✅ Workpiece and Electrode Setup
+
+- The electrode (copper, graphite, or tungsten) should be small and precise for a 1mm sheet.
+- Electrode gap (0.1mm - 0.5mm) is critical for stable cutting.
