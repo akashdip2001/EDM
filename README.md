@@ -295,50 +295,50 @@ https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
 
 ## 🌕 EDM using 555 ( works in : 300 volt )
 
-### EDM Circuit for Cutting a 1mm Metal Sheet
-### Requirements
-
-1. High Voltage (50V–300V) for Breakdown of Metal
-2. High Current Pulses (~5A–20A) for Effective Erosion
-3. Controlled Pulse Timing (Microsecond to Millisecond)
-4. Dielectric Fluid (Oil or Water) to Cool the Electrode and Workpiece
-5. A Discharge Circuit (MOSFET/IGBT) to Control Sparks
-
----
-
-Circuit Components Needed
+### **EDM Circuit for Cutting a 1mm Metal Sheet**
+To create a functional **EDM circuit**, we need:
+1. **High Voltage (50V–300V) for Breakdown of Metal**
+2. **High Current Pulses (~5A–20A) for Effective Erosion**
+3. **Controlled Pulse Timing (Microsecond to Millisecond)**
+4. **Dielectric Fluid (Oil or Water) to Cool the Electrode and Workpiece**
+5. **A Discharge Circuit (MOSFET/IGBT) to Control Sparks**
 
 ---
 
-How It Works
-
-1. Charging Phase:
-
-- The capacitor charges to high voltage (50V-300V).
-- The resistor controls the charging speed.
-
-
-2. Discharge Phase (Cutting Metal):
-
-- The MOSFET/IGBT switches ON for a short duration (microseconds to milliseconds).
-- High voltage discharges across the electrode and metal workpiece, creating sparks.
-- Metal erodes due to high-energy sparks.
-- Dielectric fluid removes debris and cools the workpiece.
+### **Circuit Components Needed**
+| Component  | Specification |
+|------------|--------------|
+| **High Voltage Power Supply** | 50V-300V DC |
+| **Capacitor Bank** | 10µF - 100µF (High Voltage) |
+| **555 Timer or Microcontroller (Arduino/PIC)** | Pulse Generator |
+| **MOSFET/IGBT (Switching Device)** | IRFP250, IRF540, or GT50J325 |
+| **Resistors (Control Discharge Rate)** | 1kΩ - 10kΩ |
+| **Inductor (Current Limiting)** | 100µH - 1mH |
+| **Dielectric Fluid** | Kerosene, EDM Oil, or Distilled Water |
 
 ---
 
-Things to Consider
+### **How It Works**
+1. **Charging Phase:**  
+   - The **capacitor** charges to **high voltage (50V-300V)**.  
+   - The **resistor** controls the charging speed.  
 
-✅ Use a Pulse Width Modulation (PWM) Circuit
+2. **Discharge Phase (Cutting Metal):**  
+   - The **MOSFET/IGBT switches ON** for a short duration (microseconds to milliseconds).  
+   - High voltage **discharges across the electrode and metal workpiece**, creating sparks.  
+   - **Metal erodes due to high-energy sparks.**  
+   - **Dielectric fluid removes debris and cools the workpiece.**
 
-- A 555 Timer or Arduino can generate pulses for better control.
+---
 
-✅ Heat Management
+### **Things to Consider**
+✅ **Use a Pulse Width Modulation (PWM) Circuit**  
+   - A **555 Timer** or **Arduino** can generate pulses for better control.  
 
-- Use a heatsink for the MOSFET/IGBT.
-- Submerge the workpiece and electrode in EDM oil or water to cool the cutting area.
+✅ **Heat Management**  
+   - **Use a heatsink for the MOSFET/IGBT.**  
+   - **Submerge the workpiece and electrode in EDM oil or water** to cool the cutting area.  
 
-✅ Workpiece and Electrode Setup
-
-- The electrode (copper, graphite, or tungsten) should be small and precise for a 1mm sheet.
-- Electrode gap (0.1mm - 0.5mm) is critical for stable cutting.
+✅ **Workpiece and Electrode Setup**  
+   - The **electrode (copper, graphite, or tungsten)** should be **small and precise** for a 1mm sheet.  
+   - **Electrode gap (0.1mm - 0.5mm) is critical for stable cutting.**  
