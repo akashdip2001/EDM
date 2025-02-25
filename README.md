@@ -4,10 +4,17 @@
 
 https://github.com/user-attachments/assets/0ce91ec2-dd03-4595-b938-38a47e7c434d
 
+Developing a functional **EDM (Electric Discharge Machine)** for cutting thin 1mm metal sheets:  
+
+
 <details>
+ <summary><b>⭕ 10 VOLT SETUP </b></summary>
 </br>
    
-Developing a functional **EDM (Electric Discharge Machine)** for cutting thin metal sheets:  
+   <details>
+</br>
+
+# creating a mini model of EDM ( 10 Volt 🌀 )
 
 ---
 
@@ -86,7 +93,8 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 ### **Final Notes**
 - The project document provides **detailed calculations** (e.g., spark voltage = 48.42V, power consumed = 2370W).  
 - The **machine does not need to be industry-grade**, but it should **demonstrate material removal effectively**.  
-</details>
+
+   </details>
 
 ---
 
@@ -276,3 +284,4 @@ https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
 ### 3. Pulse Duration and Duty Cycle Tuning
 
 - Modify the resistors (10kΩ, 1kΩ) and capacitor (100µF) to adjust the pulse width and frequency for better discharge performance.
+<\details>
