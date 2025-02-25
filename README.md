@@ -1,9 +1,12 @@
 # EDM
 
-### EDM using 555
+### EDM using 555 🌀
 
 https://github.com/user-attachments/assets/0ce91ec2-dd03-4595-b938-38a47e7c434d
 
+<details>
+</br>
+   
 Developing a functional **EDM (Electric Discharge Machine)** for cutting thin metal sheets:  
 
 ---
@@ -83,6 +86,7 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin me
 ### **Final Notes**
 - The project document provides **detailed calculations** (e.g., spark voltage = 48.42V, power consumed = 2370W).  
 - The **machine does not need to be industry-grade**, but it should **demonstrate material removal effectively**.  
+</details>
 
 ---
 
@@ -250,4 +254,21 @@ https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
 ### 2) Is This Setup Okay for EDM?
 
 ✅ `For testing the circuit: Yes`, using an LED is a great way to check if the circuit is generating pulses correctly.
+
 ❌ `For actual metal cutting: No`, because EDM requires high voltage (~50-300V) and high current pulses, whereas your 555 timer circuit only operates at 10V with limited current.
+
+## 🌀 Disadvantages of the circuit & Modifications for EDM:
+
+1. Increase the Voltage and Current
+
+- Your current 10V setup is too low for metal cutting.
+- EDM typically requires a capacitor discharge circuit (CDM) with higher voltage (50V-300V) and high peak currents.
+
+2. Use a MOSFET or IGBT for High Power Switching
+
+- The 555 timer can only drive small loads.
+- For EDM, use a MOSFET (IRF540, IRFZ44N) or IGBT (like GT50J325) to handle the high voltage and current needed for discharge.
+
+3. Pulse Duration and Duty Cycle Tuning
+
+- Modify the resistors (10kΩ, 1kΩ) and capacitor (100µF) to adjust the pulse width and frequency for better discharge performance.
