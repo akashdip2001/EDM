@@ -251,24 +251,28 @@ https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
 - This is normal for EDM because metal cutting occurs due to rapid, repetitive electrical discharges.
 - Since these pulses are too fast for the human eye, a storage oscilloscope or high-speed data logger is required to analyze them.
 
+---
+
 ### 2) Is This Setup Okay for EDM?
 
 ✅ `For testing the circuit: Yes`, using an LED is a great way to check if the circuit is generating pulses correctly.
 
 ❌ `For actual metal cutting: No`, because EDM requires high voltage (~50-300V) and high current pulses, whereas your 555 timer circuit only operates at 10V with limited current.
 
+---
+
 ## 🌀 Disadvantages of the circuit & Modifications for EDM:
 
-1. Increase the Voltage and Current
+### 1. Increase the Voltage and Current
 
 - Your current 10V setup is too low for metal cutting.
 - EDM typically requires a capacitor discharge circuit (CDM) with higher voltage (50V-300V) and high peak currents.
 
-2. Use a MOSFET or IGBT for High Power Switching
+### 2. Use a MOSFET or IGBT for High Power Switching
 
 - The 555 timer can only drive small loads.
 - For EDM, use a MOSFET (IRF540, IRFZ44N) or IGBT (like GT50J325) to handle the high voltage and current needed for discharge.
 
-3. Pulse Duration and Duty Cycle Tuning
+### 3. Pulse Duration and Duty Cycle Tuning
 
 - Modify the resistors (10kΩ, 1kΩ) and capacitor (100µF) to adjust the pulse width and frequency for better discharge performance.
