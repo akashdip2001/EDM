@@ -8,7 +8,7 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin 1m
 
 
 <details>
- <summary><b>⭕ 10 VOLT SETUP </b></summary>
+ <summary><b>⭕ 10 VOLT mini model SETUP & explain with LED 💡 & SOUND WAVE 🔊</b></summary>
 </br>
    
    <details>
@@ -244,8 +244,11 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin 1m
 9. **Pump continuously circulates the dielectric fluid**
 
 ---
+⭕ explain with LED pulse 💡
 
 https://github.com/user-attachments/assets/d262c55d-2951-4910-b1d7-bc20f60b06b1
+
+⭕ explain with sound wave pulse 🔉🔊
 
 https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
 
