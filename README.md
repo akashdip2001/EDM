@@ -289,10 +289,13 @@ https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
 - Modify the resistors (10kΩ, 1kΩ) and capacitor (100µF) to adjust the pulse width and frequency for better discharge performance.
 
 </details>
+<details>
+ <summary><b>⭕ 300V 50amp model SETUP</b></summary>
+</br>
 
 ---
 ---
-
+ 
 ## 🌕 EDM using 555 ( works in : 300 volt )
 
 ### **EDM Circuit for Cutting a 1mm Metal Sheet**
@@ -342,3 +345,8 @@ To create a functional **EDM circuit**, we need:
 ✅ **Workpiece and Electrode Setup**  
    - The **electrode (copper, graphite, or tungsten)** should be **small and precise** for a 1mm sheet.  
    - **Electrode gap (0.1mm - 0.5mm) is critical for stable cutting.**  
+
+</details>
+
+---
+---
