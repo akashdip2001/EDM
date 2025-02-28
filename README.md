@@ -8,7 +8,7 @@ Developing a functional **EDM (Electric Discharge Machine)** for cutting thin 1m
 
 
 <details>
- <summary><b>⭕ 10 VOLT mini model SETUP & explain with LED 💡 & SOUND WAVE 🔊</b></summary>
+ <summary><b>❌ 10 VOLT mini model SETUP & explain with LED 💡 & SOUND WAVE 🔊</b></summary>
 </br>
    
    <details>
@@ -290,7 +290,7 @@ https://github.com/user-attachments/assets/815e8d4a-54d7-4cc7-84b8-4445e9e795e2
 
 </details>
 <details>
- <summary><b>⭕ 300V 50amp model SETUP</b></summary>
+ <summary><b>❌ 300V 50amp model SETUP</b></summary>
 </br>
 
 ---
@@ -335,21 +335,66 @@ To create a functional **EDM circuit**, we need:
 ---
 
 ### **Things to Consider**
-✅ **Use a Pulse Width Modulation (PWM) Circuit**  
+🍥 **Use a Pulse Width Modulation (PWM) Circuit**  
    - A **555 Timer** or **Arduino** can generate pulses for better control.  
 
-✅ **Heat Management**  
+🍥 **Heat Management**  
    - **Use a heatsink for the MOSFET/IGBT.**  
    - **Submerge the workpiece and electrode in EDM oil or water** to cool the cutting area.  
 
-✅ **Workpiece and Electrode Setup**  
+🍥 **Workpiece and Electrode Setup**  
    - The **electrode (copper, graphite, or tungsten)** should be **small and precise** for a 1mm sheet.  
    - **Electrode gap (0.1mm - 0.5mm) is critical for stable cutting.**  
+</details>
+<details>
+ <summary><b>Why I not using 555 IC</b></summary>
+</br>
 
+---
+---
+
+## Why I not using 555 IC ?
+#### both the 555 timer IC and Arduino Uno (or any microcontroller) can generate PWM signals and control timing. However, the reason 555 IC is not recommended in many cases, especially for applications requiring precise PWM control
+
+1. Precision & Stability
+
+- 555 Timer: Frequency and duty cycle depend on passive components (resistors, capacitors, potentiometers), which can drift over time due to temperature changes, component tolerances, and aging.
+- Arduino: Generates highly accurate PWM with software control, and timing is managed digitally by the internal crystal oscillator, making it much more stable.
+
+---
+
+2. Frequency Adjustability
+
+- 555 Timer: You can change frequency with a potentiometer, but the adjustment is not smooth or linear. Also, if you need real-time changes, you would need additional circuits like digital potentiometers.
+- Arduino: You can adjust frequency and duty cycle dynamically using code (e.g., analogWrite() or PWM libraries).
+
+---
+
+3. Duty Cycle Control
+
+- 555 Timer: Adjusting both frequency and duty cycle independently is complicated and requires extra components.
+- Arduino: Full control over duty cycle and frequency independently, which is crucial for motor control, signal generation, etc.
+
+---
+
+4. Multiple Outputs & Complexity
+
+- 555 Timer: If you need multiple PWM outputs, you need multiple 555 ICs, making the circuit bulky.
+- Arduino: Can generate multiple PWM signals (on different pins) simultaneously and synchronize them easily.
+
+---
+
+5. Software Control & Customization
+
+- 555 Timer: Once designed, changing the behavior requires modifying hardware (resistors, capacitors).
+- Arduino: Just update the software; no need to change hardware.
 </details>
 
 ---
 ---
+
+## 🌕 EDM using ✅ **Arduino UNO**
+#### I using arduino you know to control the PWM signal using potentiometer, using 555 IC we can easily change the frequency what you have to control the time.
 
 <p align="center">
   <img src="assets/EDM-electrical-circuit-hand-drawing.jpg" alt="Image 1" width="68%" style="margin-right: 10px;"/>
