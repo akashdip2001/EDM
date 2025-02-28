@@ -351,8 +351,7 @@ To create a functional **EDM circuit**, we need:
 ---
 ---
 
-
 <p align="center">
-  <img src="assets/EDM-electrical-circuit-hand-drawing.jpg" alt="Image 1" width="65%" style="margin-right: 10px;"/>
-  <img src="assets/IGBT-G4PC40S-IR" alt="Image 2" width="30%" style="margin-right: 10px;"/>
+  <img src="assets/EDM-electrical-circuit-hand-drawing.jpg" alt="Image 1" width="68%" style="margin-right: 10px;"/>
+  <img src="assets/IGBT-G4PC40S-IR.jpg" alt="Image 2" width="28.5%" style="margin-right: 10px;"/>
 </p>
