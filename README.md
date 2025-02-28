@@ -347,7 +347,7 @@ To create a functional **EDM circuit**, we need:
    - **Electrode gap (0.1mm - 0.5mm) is critical for stable cutting.**  
 </details>
 <details>
- <summary><b>Why I not using 555 IC</b></summary>
+ <summary><b>🌀 Why I not using 555 IC ?</b></summary>
 </br>
 
 ---
