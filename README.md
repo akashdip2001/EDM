@@ -429,5 +429,5 @@ To create a functional **EDM circuit**, we need:
 ---
 ### 6. Oscilloscope (optional)
 
-![oscilloscope](https://github.com/user-attachments/assets/d790ae66-dc0c-4594-ac36-d2ad72fa3105)
+[![oscilloscope](https://github.com/user-attachments/assets/d790ae66-dc0c-4594-ac36-d2ad72fa3105)](https://robu.in/product/dso138-2-4-tft-handheld-pocket-size-digital-oscilloscope-kit-diy-parts-electronic-learning-set-1msps/)
 
