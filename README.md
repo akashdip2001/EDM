@@ -422,6 +422,6 @@ To create a functional **EDM circuit**, we need:
 5. SMPS ( 80-100V & 3-5amp )
 
 <p align="center">
-  <img src="assets/.jpg" alt="Image 1" width="45%" style="margin-right: 10px;"/>
-  <img src="assets/.jpg" alt="Image 2" width="45%" style="margin-right: 10px;"/>
+  <img src="assets/SMPS (1).jpg" alt="Image 1" width="45%" style="margin-right: 10px;"/>
+  <img src="assets/SMPS (2).jpg" alt="Image 2" width="45%" style="margin-right: 10px;"/>
 </p>
