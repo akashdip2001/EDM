@@ -403,23 +403,23 @@ To create a functional **EDM circuit**, we need:
 
 ## Requirements
 
-1. Arduino Nano (recommended) or Uno Mega (1)
+1. **Arduino Nano** (recommended) or Uno Mega (1)
 
-2. Potensiometer 10 kΩ or 5kΩ (2)
+2. **Potensiometer 10 kΩ** or 5kΩ (2)
    - one for changing the pulse   ------ ılıılıılıılıılıılıılıılıı =>  ıllııllııllııllııllııllıı
    - and another for frequency    ------ ıllııllııllııllııllııllıı => ılılılılılılılılılılılılıl
 
-3. IGBT (any one of below 4)
-   - IRG4PC40S (3)           or,
-   - H20R1203 / 20R1203 (5)  or,
-   - IRG4PC40UD (2)          or,
+3. **IGBT** (any one of below 4)
+   - **IRG4PC40S (3)** or,
+   - H20R1203 / 20R1203 (5) or,
+   - IRG4PC40UD (2) or,
    - KGF25N135NDH (3)
 
-4. Capacitor --| |-- (Voltage may change bec of availability But you need the exect uF)
-   - 200V 100uF
-   - 200V 470uF
+4. **Capacitor** --| |-- (Voltage may change bec of availability But you need the exect uF)
+   - **200V 100uF**
+   - **200V 470uF**
 
-5. SMPS ( 80-100V & 3-5amp )
+5. **SMPS ( 80-100V & 3-5amp )**
 
 <p align="center">
   <img src="assets/SMPS (1).jpg" alt="Image 1" width="45%" style="margin-right: 10px;"/>
