@@ -403,7 +403,7 @@ To create a functional **EDM circuit**, we need:
 
 ## Requirements
 
-1. **Arduino Nano** (recommended) or Uno Mega (1)
+1. **Arduino Nano** (recommended) or Uno Mega (1 piece)
 ---
 2. **Potensiometer 10 kΩ** or 5kΩ (2)
    - one for changing the pulse   ------ ılıılıılıılıılıılıılıılıı =>  ıllııllııllııllııllııllıı
@@ -419,7 +419,7 @@ To create a functional **EDM circuit**, we need:
    - **200V 100uF**
    - **200V 470uF**
 ---
-### 5. **SMPS ( 80-100V & 3-5amp )**
+### 5. **SMPS (80-100V & 3-5amp)**
 
 <p align="center">
   <img src="assets/SMPS (1).jpg" alt="Image 1" width="45%" style="margin-right: 10px;"/>
