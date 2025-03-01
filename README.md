@@ -409,7 +409,7 @@ To create a functional **EDM circuit**, we need:
    - one for changing the pulse   ------ ılıılıılıılıılıılıılıılıı =>  ıllııllııllııllııllııllıı
    - and another for frequency    ------ ıllııllııllııllııllııllıı => ılılılılılılılılılılılılıl
 ---
-3. **IGBT** (any one of below 4)
+3. **IGBT** (take any one option from below)
    - **IRG4PC40S (3)** or,
    - H20R1203 / 20R1203 (5) or,
    - IRG4PC40UD (2) or,
