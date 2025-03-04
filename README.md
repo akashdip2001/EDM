@@ -405,13 +405,13 @@ To create a functional **EDM circuit**, we need:
 
 1. **Arduino Nano** (recommended) or Uno Mega (1 piece)
 ---
+
+<img align="right" alt="" width="300" src="https://github.com/user-attachments/assets/e55fd77b-c2e7-46dd-ada9-fba03963d206">
+
 2. **Potensiometer 10 kΩ** or 5kΩ (2)
    - one for changing the pulse   ------ ılıılıılıılıılıılıılıılıı =>  ıllııllııllııllııllııllıı
    - and another for frequency    ------ ıllııllııllııllııllııllıı => ılılılılılılılılılılılılıl
 ---
-
-<img align="right" alt="" width="300" src="https://github.com/user-attachments/assets/e55fd77b-c2e7-46dd-ada9-fba03963d206">
-
 3. **IGBT** (take any one option from below)
    - **IRG4PC40S (3)** or,
    - H20R1203 / 20R1203 (5) or,
