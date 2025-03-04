@@ -409,6 +409,9 @@ To create a functional **EDM circuit**, we need:
    - one for changing the pulse   ------ ılıılıılıılıılıılıılıılıı =>  ıllııllııllııllııllııllıı
    - and another for frequency    ------ ıllııllııllııllııllııllıı => ılılılılılılılılılılılılıl
 ---
+
+<img align="right" alt="" width="300" src="https://github.com/user-attachments/assets/e55fd77b-c2e7-46dd-ada9-fba03963d206">
+
 3. **IGBT** (take any one option from below)
    - **IRG4PC40S (3)** or,
    - H20R1203 / 20R1203 (5) or,
@@ -421,10 +424,14 @@ To create a functional **EDM circuit**, we need:
 ---
 ### 5. **SMPS (80-100V & 3-5amp)**
 
+<details>
 <p align="center">
   <img src="assets/SMPS (1).jpg" alt="Image 1" width="45%" style="margin-right: 10px;"/>
   <img src="assets/SMPS (2).jpg" alt="Image 2" width="45%" style="margin-right: 10px;"/>
 </p>
+</details>
+
+![SMPS](https://github.com/user-attachments/assets/91566b63-bd3c-4a62-a218-66c6785567b7)
 
 ---
 ### 6. Oscilloscope (optional)
@@ -572,6 +579,8 @@ Cycle: 3 | Voltage: 90.2V | Current: 4.3A
 ---
 
 ## 🌕 EDM using ✅ **Raspberry pi pico**
+
+![raspberry pi pico](https://github.com/user-attachments/assets/59477b47-4ed2-4573-accb-d70e016ef5ae)
 
 ### **🚀 Upgrading EDM to Raspberry Pi Pico W with Wi-Fi & Mobile Control**  
 
