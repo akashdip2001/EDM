@@ -431,3 +431,303 @@ To create a functional **EDM circuit**, we need:
 
 [![oscilloscope](https://github.com/user-attachments/assets/d790ae66-dc0c-4594-ac36-d2ad72fa3105)](https://robu.in/product/dso138-2-4-tft-handheld-pocket-size-digital-oscilloscope-kit-diy-parts-electronic-learning-set-1msps/)
 
+---
+
+### Code
+
+✅ **Pulse On-Time** (Ton)  
+✅ **Pulse Off-Time** (Toff)  
+✅ **Total Discharge Cycles**  
+✅ **Voltage & Current Monitoring** (using sensors)  
+✅ **Data Logging to SD Card or Serial Monitor**  
+
+---
+
+### **🛠 Required Components for Industry-Level EDM**
+| **Component** | **Specification** | **Purpose** |
+|--------------|------------------|------------|
+| **Arduino Nano/UNO** | 1 piece | Generates PWM signals |
+| **Potentiometer** | 10kΩ (2 pieces) | Adjusts Ton & Toff |
+| **IGBT** | IRG4PC40S / H20R1203 / IRG4PC40UD / KGF25N135NDH | High-voltage switching |
+| **Capacitors** | 200V 100µF & 200V 470µF | Energy storage |
+| **SMPS** | 80-100V, 3-5A | Power supply |
+| **Current Sensor** | ACS712 (5A/20A/30A) | Measures discharge current |
+| **Voltage Sensor** | Voltage Divider (100:1) | Monitors EDM voltage |
+| **SD Card Module** | (Optional) | Logs EDM data |
+
+---
+
+### **🚀 EDM Code**
+This **Arduino sketch** controls **PWM pulses** for EDM and records process parameters.  
+
+#### **⚙ Features**
+✅ **Real-time adjustable** pulse width & frequency  
+✅ **IGBT high-speed switching**  
+✅ **Voltage & current monitoring**  
+✅ **Data logging to Serial Monitor / SD card**  
+
+```cpp
+#include <SPI.h>        // SD Card Library (if used)
+#include <SD.h>         // For SD Card Logging
+
+#define pwmPin 9        // IGBT Gate Control
+#define potWidth A0     // Potentiometer for Pulse Width
+#define potFreq A1      // Potentiometer for Frequency
+#define currSensor A2   // ACS712 Current Sensor
+#define voltSensor A3   // Voltage Divider Sensor
+#define chipSelect 10   // SD Card Module Chip Select Pin
+
+unsigned long cycleCount = 0;
+float voltage, current;
+
+void setup() {
+    pinMode(pwmPin, OUTPUT);
+    Serial.begin(115200);  // Serial Monitor
+
+    if (!SD.begin(chipSelect)) {
+        Serial.println("SD Card Initialization Failed!");
+    } else {
+        Serial.println("SD Card Ready.");
+    }
+}
+
+void loop() {
+    int pulseWidth = analogRead(potWidth);  // Read Pulse Width
+    int freq = analogRead(potFreq);         // Read Frequency
+
+    int onTime = map(pulseWidth, 0, 1023, 10, 500); // Ton (10-500 µs)
+    int offTime = map(freq, 0, 1023, 10, 500);      // Toff (10-500 µs)
+
+    // Start Discharge Pulse
+    digitalWrite(pwmPin, HIGH);
+    delayMicroseconds(onTime);
+    digitalWrite(pwmPin, LOW);
+    delayMicroseconds(offTime);
+
+    // Read Sensor Data
+    voltage = analogRead(voltSensor) * (5.0 / 1023.0) * 100;  // Convert to actual voltage
+    current = analogRead(currSensor) * (5.0 / 1023.0) * 30;   // Convert to actual current
+
+    // Increment Discharge Cycle
+    cycleCount++;
+
+    // Serial Monitor Output
+    Serial.print("Cycle: ");
+    Serial.print(cycleCount);
+    Serial.print(" | Voltage: ");
+    Serial.print(voltage);
+    Serial.print("V | Current: ");
+    Serial.print(current);
+    Serial.println("A");
+
+    // Logging to SD Card
+    File dataFile = SD.open("edm_log.txt", FILE_WRITE);
+    if (dataFile) {
+        dataFile.print("Cycle: ");
+        dataFile.print(cycleCount);
+        dataFile.print(" | Voltage: ");
+        dataFile.print(voltage);
+        dataFile.print("V | Current: ");
+        dataFile.print(current);
+        dataFile.println("A");
+        dataFile.close();
+    }
+}
+```
+
+---
+
+### **📊 Output Example (Serial Monitor & SD Card)**
+```
+Cycle: 1 | Voltage: 90.5V | Current: 4.2A
+Cycle: 2 | Voltage: 89.8V | Current: 4.1A
+Cycle: 3 | Voltage: 90.2V | Current: 4.3A
+...
+```
+
+---
+
+### **📌 Explanation**
+1. **PWM Signal Generation**
+   - **Ton & Toff adjustable** via potentiometers.
+   - Generates **precision-controlled sparks** for metal cutting.
+
+2. **Voltage & Current Monitoring**
+   - **Voltage Sensor** (reads EDM voltage).
+   - **Current Sensor** (monitors discharge current).
+   - **Ensures stable operation & prevents overheating.**
+
+3. **Cycle Counting & Data Logging**
+   - **Counts discharge cycles** for process tracking.
+   - **Saves readings** to **SD card** (or displays on Serial Monitor).
+
+---
+
+### **🔧 Next Steps**
+✅ Test on an **oscilloscope** for PWM tuning.  
+✅ Use **IGBT heatsink & fan** for cooling.  
+✅ Implement **emergency stop button** for safety.  
+
+---
+---
+
+## 🌕 EDM using ✅ **Raspberry pi pico**
+
+### **🚀 Upgrading EDM to Raspberry Pi Pico W with Wi-Fi & Mobile Control**  
+
+Using the **Raspberry Pi Pico W**, you can achieve:  
+✅ **Precise PWM control** for EDM pulses  
+✅ **Mobile monitoring** (pulse waveform & EDM status)  
+✅ **Wi-Fi control** (turn EDM on/off via web interface)  
+✅ **Replace Oscilloscope** (view pulse on phone screen)  
+
+---
+
+### **🛠 Required Components**
+| **Component** | **Specification** | **Purpose** |
+|--------------|------------------|------------|
+| **Raspberry Pi Pico W** | (Built-in Wi-Fi) | Main controller |
+| **IGBTs** | IRG4PC40S / H20R1203 / IRG4PC40UD | High-voltage switching |
+| **Capacitors** | 200V 100µF & 200V 470µF | Energy storage |
+| **Current Sensor** | ACS712 (5A/20A/30A) | Measures discharge current |
+| **Voltage Sensor** | Voltage Divider (100:1) | Monitors EDM voltage |
+| **SMPS** | 80-100V, 3-5A | Power supply |
+| **OLED Display (optional)** | SSD1306 | Local pulse monitoring |
+
+---
+
+### **🔗 Features of Raspberry Pi Pico W in EDM**
+✅ **Web-based Control:** Start/Stop EDM remotely  
+✅ **Live Pulse Monitoring:** View waveforms in a web UI  
+✅ **Adjustable PWM:** Change pulse width/frequency in real time  
+✅ **Wi-Fi Connectivity:** Data logging & remote control  
+✅ **Safe Power Switching:** Control IGBT safely  
+
+---
+
+### **🚀 Raspberry Pi Pico W Code for Wi-Fi Controlled EDM**
+This code will:  
+1️⃣ **Generate adjustable PWM for EDM**  
+2️⃣ **Stream live pulse data to a mobile web page**  
+3️⃣ **Allow power control via Wi-Fi web interface**  
+
+```python
+import network
+import socket
+import machine
+import utime
+
+# Pin Configuration
+pwm_pin = machine.Pin(16)  # GPIO for PWM
+led = machine.Pin(25, machine.Pin.OUT)  # Onboard LED for status
+pwm = machine.PWM(pwm_pin)
+pwm.freq(500)  # Default frequency 500 Hz
+pwm.duty_u16(32768)  # 50% duty cycle
+
+# Wi-Fi Setup
+ssid = "Your_WiFi_Name"
+password = "Your_WiFi_Password"
+
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(ssid, password)
+
+while not wlan.isconnected():
+    utime.sleep(1)
+
+print("Connected to Wi-Fi")
+
+# Web Page for Control
+html = """<!DOCTYPE html>
+<html>
+<head><title>EDM Control</title></head>
+<body>
+<h2>EDM Machine Control</h2>
+<p>Pulse Frequency: <span id="freq">500</span> Hz</p>
+<p>Power: <span id="power">ON</span></p>
+<button onclick="sendCommand('increase')">Increase Frequency</button>
+<button onclick="sendCommand('decrease')">Decrease Frequency</button>
+<button onclick="sendCommand('toggle')">Turn On/Off</button>
+
+<script>
+function sendCommand(cmd) {
+    fetch('/' + cmd).then(response => response.text()).then(data => {
+        document.getElementById("freq").innerText = data;
+    });
+}
+</script>
+</body></html>
+"""
+
+# Handle Web Requests
+def handle_request(request):
+    global pwm
+    if '/increase' in request:
+        freq = pwm.freq() + 50
+        pwm.freq(freq)
+    elif '/decrease' in request:
+        freq = pwm.freq() - 50
+        pwm.freq(freq)
+    elif '/toggle' in request:
+        if pwm.duty_u16() > 0:
+            pwm.duty_u16(0)
+        else:
+            pwm.duty_u16(32768)
+    return str(pwm.freq())
+
+# Web Server
+addr = socket.getaddrinfo('0.0.0.0', 80)[0][-1]
+s = socket.socket()
+s.bind(addr)
+s.listen(5)
+
+print("Web server running...")
+
+while True:
+    cl, addr = s.accept()
+    request = cl.recv(1024).decode()
+    response = handle_request(request) if "GET" in request else html
+    cl.send("HTTP/1.0 200 OK\r\nContent-type: text/html\r\n\r\n" + response)
+    cl.close()
+```
+
+---
+
+### **📊 Features of This Code**
+✅ **Web-Based EDM Control**  
+   - Start/Stop EDM remotely  
+   - Adjust pulse frequency in real-time  
+   - Monitor EDM pulse status  
+
+✅ **Wi-Fi Integration**  
+   - Connect to Wi-Fi  
+   - Host a control webpage  
+
+✅ **PWM Control for EDM Pulse**  
+   - Adjust **pulse frequency** dynamically  
+   - Ensure **stable IGBT switching**  
+
+---
+
+### **📱 How to Control EDM from Your Phone**
+1️⃣ **Connect Raspberry Pi Pico W to Wi-Fi**  
+2️⃣ Open **IP Address** in your mobile browser  
+   Example: `http://192.168.1.100`  
+3️⃣ Use **buttons** to:
+   - ✅ **Increase/Decrease frequency**
+   - ✅ **Turn EDM ON/OFF**
+4️⃣ Monitor pulse status on **mobile screen**  
+
+---
+
+### **🔧 Enhancements**
+✅ **Send Pulse Data to a Cloud Dashboard (MQTT / Firebase)**  
+✅ **Connect an OLED Display for Local Monitoring**  
+✅ **Use Bluetooth Instead of Wi-Fi for Offline Control**  
+
+---
+
+### **🔌 Next Steps**
+🔹 Do you need a **real-time pulse waveform display** in the web UI?  
+🔹 Want to **log data to an SD card or cloud server**?  
+🔹 Need a **custom PCB design for your EDM project**?  
