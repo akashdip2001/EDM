@@ -740,3 +740,11 @@ while True:
 🔹 Do you need a **real-time pulse waveform display** in the web UI?  
 🔹 Want to **log data to an SD card or cloud server**?  
 🔹 Need a **custom PCB design for your EDM project**?  
+
+
+---
+
+# ⚙️ Next page :: Under development 
+
+click the image
+[<img src="https://github.com/user-attachments/assets/7905fc08-8ef0-45a2-9316-96fbf5f3ebdf">](https://github.com/akashdip2001/EDM/blob/main/15-03-2025.md)
