@@ -1,7 +1,9 @@
 # EDM
 
 1. 🔵 [This is a old planning page](#)
-2. 🔵 [Warking & Testing Electric circuit pg](15-03-2025.md)
+2. 🔵 [Warking & Testing Electric circuit pg](#)
+    1. 🟢 [Day 01](2025-03-15.md)
+    2. 🟢 [Day 02](2025-04-21.md)
 3. 🔵 [Wooden setup](setup/wooden_setup.md)
 
 ---
