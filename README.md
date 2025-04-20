@@ -2,7 +2,7 @@
 
 1. 🔵 [This is a old planning page](#)
 2. 🔵 [Warking & Testing Electric circuit pg](15-03-2025.md)
-3. 🔵 [Wooden setup](wooden_setup.md)
+3. 🔵 [Wooden setup](setup/wooden_setup.md)
 
 ---
 
