@@ -1,4 +1,5 @@
-## 🎯 `Aluminium sheet` & `Brass road`
+# 🎯 `Aluminium sheet` (200mm X 100mm X 1mm) & 
+# 🎯 `Brass road` (1ft X outer dia 5mm)
 
 ![row parts (1)](https://github.com/user-attachments/assets/8cc56f36-db92-4647-ac98-ce43f82bcddb)
 ![row parts (2)](https://github.com/user-attachments/assets/3ea32648-1dba-404b-9286-5be7c4016e8f)
