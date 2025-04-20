@@ -1,5 +1,11 @@
 # EDM
 
+1. 🔵 [This is a old planning page](#)
+2. 🔵 [Warking & Testing Electric circuit pg](15-03-2025.md)
+3. 🔵 [Wooden setup](wooden_setup.md)
+
+---
+
 ### 🌕 EDM using 555 🌀 ( works in : 10 volt )
 
 https://github.com/user-attachments/assets/0ce91ec2-dd03-4595-b938-38a47e7c434d
