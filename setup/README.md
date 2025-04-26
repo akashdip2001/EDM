@@ -12,12 +12,6 @@
 
 ---
 
-<details>
-
-https://github.com/user-attachments/assets/ca5752fe-5c3d-4b52-bfe8-a7c062ad8992
-
-</details>
-
 <p align="center">
   <img src="wooden frame 01.jpg" alt="Image 1" width="41%" style="margin-right: 10px;"/>
   <img src="wooden frame 02.jpg" alt="Image 2" width="50%" style="margin-right: 10px;"/>
