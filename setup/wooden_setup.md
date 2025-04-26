@@ -16,9 +16,21 @@
 
 https://github.com/user-attachments/assets/ca5752fe-5c3d-4b52-bfe8-a7c062ad8992
 
+</br>
+
+> This `Wooden mode` plane & `Design` give me my [little brother](https://github.com/Arkadip2007) [`Arkadip Mahapatra`](https://www.linkedin.com/in/arkadip2008)
+
 </details>
+
+</br>
 
 <p align="center">
   <img src="wooden frame 01.jpg" alt="Image 1" width="41%" style="margin-right: 10px;"/>
   <img src="wooden frame 02.jpg" alt="Image 2" width="50%" style="margin-right: 10px;"/>
 </p>
+
+https://github.com/user-attachments/assets/e3bf686d-f50e-4658-bc9d-9195b8c3549f
+
+---
+
+# [Next page](README.md)
