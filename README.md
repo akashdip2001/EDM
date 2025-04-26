@@ -8,6 +8,13 @@
 
 ---
 
+<p align="center">
+  <img src="setup/wooden frame 01.jpg" alt="Image 1" width="41%" style="margin-right: 10px;"/>
+  <img src="setup/wooden frame 02.jpg" alt="Image 2" width="50%" style="margin-right: 10px;"/>
+</p>
+
+---
+
 ### 🌕 EDM using 555 🌀 ( works in : 10 volt )
 
 https://github.com/user-attachments/assets/0ce91ec2-dd03-4595-b938-38a47e7c434d
