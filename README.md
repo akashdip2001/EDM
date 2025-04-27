@@ -4,14 +4,17 @@
 2. 🔵 [Warking & Testing Electric circuit pg](#)
     1. 🟢 [Day 01](2025-03-15.md)
     2. 🟢 [Day 02](2025-04-21.md)
+    3. 🟢 [Day 03](2025-04-28.md)
 3. 🔵 [Wooden setup](setup/wooden_setup.md)
 
 ---
 
 <p align="center">
-  <img src="setup/wooden frame 01.jpg" alt="Image 1" width="41%" style="margin-right: 10px;"/>
-  <img src="setup/wooden frame 02.jpg" alt="Image 2" width="50%" style="margin-right: 10px;"/>
+  <img src="setup/wooden frame 02.jpg" alt="Image 1" width="34%" style="margin-right: 10px;"/>
+  <img src="setup/setup Day3 02.jpg" alt="Image 2" width="61%" style="margin-right: 10px;"/>
 </p>
+
+> To check the `c++ code`, click to jump [Day-03](2025-04-28.md)
 
 ---
 
