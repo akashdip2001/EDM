@@ -16,3 +16,20 @@
   <img src="wooden frame 01.jpg" alt="Image 1" width="41%" style="margin-right: 10px;"/>
   <img src="wooden frame 02.jpg" alt="Image 2" width="50%" style="margin-right: 10px;"/>
 </p>
+
+--- 
+
+# 🎯 Next day
+
+<p align="center">
+  <img src="setup Day3 01.jpg" alt="Image 1" width="41%" style="margin-right: 10px;"/>
+  <img src="setup Day3 02.jpg" alt="Image 2" width="50%" style="margin-right: 10px;"/>
+</p>
+<p align="center">
+  <img src="setup Day3 03.jpg" alt="Image 1" width="41%" style="margin-right: 10px;"/>
+  <img src="setup Day3 04.jpg" alt="Image 2" width="50%" style="margin-right: 10px;"/>
+</p>
+
+</br>
+
+https://github.com/user-attachments/assets/1796df11-e332-4178-b55e-e0d2d497769a
