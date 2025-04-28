@@ -11,8 +11,8 @@
 ---
 
 <p align="center">
-  <img src="setup/wooden frame 02.jpg" alt="Image 1" width="34%" style="margin-right: 10px;"/>
-  <img src="setup/setup Day3 02.jpg" alt="Image 2" width="61%" style="margin-right: 10px;"/>
+  <img src="setup/wooden frame 02.jpg" alt="Image 1" width="39%" style="margin-right: 10px;"/>
+  <img src="setup/Day 04/setup EDM 01.jpg" alt="Image 2" width="52%" style="margin-right: 10px;"/>
 </p>
 
 > To check the `c++ code`, click to jump [Day-03](2025-04-28.md)
