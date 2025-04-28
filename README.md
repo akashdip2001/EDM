@@ -2,9 +2,10 @@
 
 1. 🔵 [This is a old planning page](#)
 2. 🔵 [Warking & Testing Electric circuit pg](#)
-    1. 🟢 [Day 01](2025-03-15.md)
-    2. 🟢 [Day 02](2025-04-21.md)
-    3. 🟢 [Day 03](2025-04-28.md)
+    1. 🟢 [Day 01](2025-03-15.md) (setup)
+    2. 🟢 [Day 02](2025-04-21.md) (setup)
+    3. 🟢 [Day 03](2025-04-28.md) (setup)
+    4. 🔴 [Day 04](2025-04-29.md) (❌ Test)
 3. 🔵 [Wooden setup](setup/wooden_setup.md)
 
 ---
