@@ -6,6 +6,7 @@
     2. 🟢 [Day 02](2025-04-21.md) (setup)
     3. 🟢 [Day 03](2025-04-28.md) (setup)
     4. 🔴 [Day 04](2025-04-29.md) (❌ Test)
+    5. 🟢 [Day 05](2025-04-30.md) (upgrade setup & short circuit protection)
 3. 🔵 [Wooden setup](setup/wooden_setup.md)
 
 ---
