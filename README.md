@@ -424,6 +424,7 @@ To create a functional **EDM circuit**, we need:
   <img src="assets/IGBT-G4PC40S-IR.jpg" alt="Image 2" width="28.5%" style="margin-right: 10px;"/>
 </p>
 
+> updated [`circuit-hand-drawing`](https://github.com/akashdip2001/EDM/blob/main/setup/Day%2006/Electrical%20discharge%20machining%20(EDM).jpg)
 
 ## Requirements
 
