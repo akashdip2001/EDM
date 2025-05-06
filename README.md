@@ -418,9 +418,12 @@ To create a functional **EDM circuit**, we need:
 #### I using arduino you know to control the PWM signal using potentiometer, using 555 IC we can easily change the frequency what you have to control the time.
 
 <p align="center">
-  <img src="assets/EDM-electrical-circuit-hand-drawing.jpg" alt="Image 1" width="68%" style="margin-right: 10px;"/>
+  <a href="https://github.com/akashdip2001/EDM/blob/main/setup/Day%2006/Electrical%20discharge%20machining%20(EDM).jpg">
+    <img src="assets/EDM-electrical-circuit-hand-drawing.jpg" alt="Image 1" width="68%" style="margin-right: 10px;"/>
+  </a>
   <img src="assets/IGBT-G4PC40S-IR.jpg" alt="Image 2" width="28.5%" style="margin-right: 10px;"/>
 </p>
+
 
 ## Requirements
 
