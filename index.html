@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Electronics Project Showcase</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #0e0e0e;
+        color: #e0e0e0;
+        overflow-x: hidden;
+      }
+      header {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          width: 100vw;
+          height: 52vh; /*31 Mobile-specific video height */
+        }
+      }
+
+      header iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
+      }
+
+      .auto-scroll-gallery {
+        display: flex;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
+        gap: 1rem;
+        padding: 2rem 1rem;
+      }
+      .auto-scroll-gallery::-webkit-scrollbar {
+        display: none;
+      }
+      .auto-scroll-gallery img {
+        height: 300px;
+        object-fit: contain;
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: transform 0.3s;
+        border-radius: 12px;
+      }
+      .auto-scroll-gallery img.fullscreen {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.2);
+        height: auto;
+        width: 90vw;
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.9);
+      }
+
+      .items {
+        padding: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+      .item {
+        position: relative;
+        background: #1a1a1a;
+        padding: 1.5rem;
+        border-radius: 12px;
+        cursor: pointer;
+      }
+      .popup {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #111;
+        border: 2px solid #ff007f;
+        border-radius: 10px;
+        padding: 10px;
+        display: none;
+        z-index: 10;
+      }
+      .popup img {
+        width: 100px;
+        height: auto;
+      }
+      .popup button {
+        margin-top: 10px;
+        background: #ff007f;
+        color: white;
+        border: none;
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Section 1: Responsive Landscape Video -->
+    <header>
+      <iframe
+        src="https://www.youtube.com/embed/HqGpgHKPkes?autoplay=1&mute=1&controls=0&loop=1&playlist=HqGpgHKPkes"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe>
+    </header>
+
+    <!-- Section 2: Auto-scrolling photo gallery -->
+    <section class="auto-scroll-gallery" id="scroll-gallery">
+      <img
+        src="EDM-expense-site/src/assets/images/wooden frame 02.jpg"
+        alt="Setup 1"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/setup Day3 03.jpg"
+        alt="Setup 2"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/setup Day3 01.jpg"
+        alt="Setup 3"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/setup Day3 02.jpg"
+        alt="Setup 4"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/setup EDM 01.jpg"
+        alt="Setup 5"
+      />
+      <img src="EDM-expense-site/src/assets/images/Red LED.jpg" alt="Setup 5" />
+      <img
+        src="EDM-expense-site/src/assets/images/Relays & voltage booster.jpg"
+        alt="Setup 5"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/soldaring Al 01.jpg"
+        alt="Setup 5"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/setup day 5.jpg"
+        alt="Setup 5"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/electrical warning 01.jpg"
+        alt="Setup 5"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/electrical warning 02.jpg"
+        alt="Setup 5"
+      />
+      <img
+        src="EDM-expense-site/src/assets/images/capacitor bust 01.jpg"
+        alt="Setup 5"
+      />
+      <img src="EDM-expense-site/src/assets/images/Result.jpg" alt="Setup 5" />
+      <img
+        src="EDM-expense-site/src/assets/images/450v 100mf.jpg"
+        alt="Setup 5"
+      />
+    </section>
+
+    <!-- Section 3: Interactive Item List -->
+    <section class="items">
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>3-pin wire</h3>
+        <p>₹80</p>
+        <div class="popup">
+          <img
+            src="EDM-expense-site/src/assets/images/01.png"
+            alt="3-pin wire"
+          />
+          <a href="https://amazon.in/dp/B0D35W8P59" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Bridge Rectifier (DB2510)</h3>
+        <p>₹170</p>
+        <div class="popup">
+          <img
+            src="EDM-expense-site/src/assets/images/02.png"
+            alt="Bridge Rectifier"
+          />
+          <a href="https://www.linkedin.com/posts/akashdip2001_electronics-engineering-rectifier-activity-7303431382817550339-YMbE" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>100W Filament Bulb</h3>
+        <p>₹65</p>
+        <div class="popup">
+          <img
+            src="EDM-expense-site/src/assets/images/electrical warning 02.jpg"
+            alt="Filament Bulb"
+          />
+          <a href="https://www.amazon.in/dp/B08XYM8T6W" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Holder</h3>
+        <p>₹40</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/61XAZaHeL9L._SL1500_.jpg"
+            alt="Bulb Holder"
+          />
+          <a href="https://www.amazon.in/dp/B0BSMHRFY6" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Brass Rod (5mm x 30cm)</h3>
+        <p>₹291</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/51WmdE7FVvL._SL1080_.jpg"
+            alt="Brass Rod"
+          />
+          <a href="https://www.amazon.in/dp/B07MJL2RBT" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Aluminium Sheet</h3>
+        <p>₹257</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/51T4dfnrbXL._SL1100_.jpg"
+            alt="Aluminium Sheet"
+          />
+          <a href="https://www.amazon.in/dp/B09MK37L6S" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>IGBT H20R1203</h3>
+        <p>₹45</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/61Vtz0bgYyL._SL1500_.jpg"
+            alt="IGBT H20R1203"
+          />
+          <a href="https://www.amazon.in/dp/B08PKQBPBM" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Heat Sink</h3>
+        <p>₹35</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/51XB66NekCL._SL1000_.jpg"
+            alt="Heat Sink"
+          />
+          <a href="https://www.amazon.in/dp/B08D6NY95V" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Resistors (10k, 1k)</h3>
+        <p>₹30</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/81xgYOSIxHL._SL1500_.jpg"
+            alt="Resistors"
+          />
+          <a href="https://www.amazon.in/dp/B07HD9F2CV" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Arduino Nano</h3>
+        <p>₹395</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/61gN1AQMsQL._SL1000_.jpg"
+            alt="Arduino Nano"
+          />
+          <a href="https://www.amazon.in/dp/B083ZWVNRW" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>16x2 LCD Display</h3>
+        <p>₹206</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/61eUO7Cuj1L._SL1500_.jpg"
+            alt="LCD 16x2"
+          />
+          <a href="https://www.amazon.in/dp/B07MCGZK3Y" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>10k Potentiometer</h3>
+        <p>₹75</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/61r+Ho-+AjL._SL1100_.jpg"
+            alt="Potentiometer"
+          />
+          <a href="https://www.amazon.in/dp/B078H3NN7K" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Capacitors (2)</h3>
+        <p>₹10</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/71PFGNR4-HL._SL1500_.jpg"
+            alt="Capacitors"
+          />
+          <a href="https://www.amazon.in/dp/B08QV2L44K" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Programming Cable</h3>
+        <p>₹88</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/51KZXn6gQjL._SL1000_.jpg"
+            alt="Programming Cable"
+          />
+          <a href="https://www.amazon.in/dp/B08HGBWCHM" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>BC547 Transistor</h3>
+        <p>₹15</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/61PLTkgA80L._SL1500_.jpg"
+            alt="BC547"
+          />
+          <a href="https://www.amazon.in/dp/B07H6Z3FLR" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>5V Converter</h3>
+        <p>₹85</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/61vm9hyTqxL._SL1500_.jpg"
+            alt="5V Converter"
+          />
+          <a href="https://www.amazon.in/dp/B09YBDCKP6" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Boost Converter</h3>
+        <p>₹170</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/71LQhLJgNkL._SL1500_.jpg"
+            alt="Boost Converter"
+          />
+          <a href="https://www.amazon.in/dp/B07HHD4Y8Z" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Nylon Cable Tie</h3>
+        <p>₹65</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/61yrZ5vRtwL._SL1500_.jpg"
+            alt="Cable Tie"
+          />
+          <a href="https://www.amazon.in/dp/B07RDZPGVK" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+      >
+        <h3>Cable Clips</h3>
+        <p>₹80</p>
+        <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
+            alt="Cable Clips"
+          />
+          <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Auto scroll setup images
+      const gallery = document.getElementById("scroll-gallery");
+      let autoScroll = true;
+      let scrollSpeed = 10;
+
+      function scrollGallery() {
+        if (autoScroll) {
+          gallery.scrollLeft += scrollSpeed;
+          if (gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth) {
+            gallery.scrollLeft = 0;
+          }
+        }
+        requestAnimationFrame(scrollGallery);
+      }
+      scrollGallery();
+
+      gallery.addEventListener("mousedown", () => (autoScroll = false));
+      gallery.addEventListener("mouseup", () => (autoScroll = true));
+      gallery.addEventListener("touchstart", () => (autoScroll = false));
+      gallery.addEventListener("touchend", () => (autoScroll = true));
+
+      gallery.addEventListener("wheel", (e) => {
+        scrollSpeed = Math.min(
+          Math.max(scrollSpeed + e.deltaY * -0.01, 0.5),
+          5
+        );
+      });
+
+      // Fullscreen on click
+      const images = gallery.querySelectorAll("img");
+      images.forEach((img) => {
+        img.addEventListener("click", () => {
+          img.classList.toggle("fullscreen");
+        });
+      });
+
+      // Popup functionality
+      function showPopup(item) {
+        item.querySelector(".popup").style.display = "block";
+      }
+      function hidePopup(item) {
+        item.querySelector(".popup").style.display = "none";
+      }
+      function togglePopup(item) {
+        const popup = item.querySelector(".popup");
+        popup.style.display =
+          popup.style.display === "block" ? "none" : "block";
+      }
+    </script>
+  </body>
+</html>
