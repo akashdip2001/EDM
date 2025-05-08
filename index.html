@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Electronics Project Showcase</title>
     <style>
+      * {
+        user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+
+      /* === General Reset === */
       body {
         margin: 0;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -12,19 +19,13 @@
         color: #e0e0e0;
         overflow-x: hidden;
       }
+
+      /* === Header (Full Screen Video or Image) === */
       header {
         width: 100vw;
         height: 100vh;
         overflow: hidden;
       }
-
-      @media (max-width: 768px) {
-        header {
-          width: 100vw;
-          height: 52vh; /*31 Mobile-specific video height */
-        }
-      }
-
       header iframe {
         width: 100%;
         height: 100%;
@@ -32,6 +33,13 @@
         border: none;
       }
 
+      @media (max-width: 768px) {
+        header {
+          height: 52vh; /* Mobile-specific height */
+        }
+      }
+
+      /* === Auto-Scrolling Image Gallery === */
       .auto-scroll-gallery {
         display: flex;
         overflow-x: scroll;
@@ -39,9 +47,11 @@
         gap: 1rem;
         padding: 2rem 1rem;
       }
+
       .auto-scroll-gallery::-webkit-scrollbar {
         display: none;
       }
+
       .auto-scroll-gallery img {
         height: 300px;
         object-fit: contain;
@@ -50,6 +60,7 @@
         transition: transform 0.3s;
         border-radius: 12px;
       }
+
       .auto-scroll-gallery img.fullscreen {
         position: fixed;
         top: 50%;
@@ -61,47 +72,153 @@
         background: rgba(0, 0, 0, 0.9);
       }
 
+      /* === Item Container === */
       .items {
         padding: 3rem;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
+        transition: all 0.5s ease-in-out;
+        overflow: visible; /* Important: allows popup to be visible */
+        position: relative; /* Enables stacking context for popups */
       }
+
+      /* === Individual Item Card === */
       .item {
         position: relative;
         background: #1a1a1a;
         padding: 1.5rem;
         border-radius: 12px;
         cursor: pointer;
+        transition: transform 0.1s ease, background 0.3s ease;
+        overflow: visible;
       }
+
+      .item:hover {
+        background: #222;
+        transform: translateY(-2px);
+      }
+
+      .item:active {
+        transform: scale(0.98);
+        background: #333;
+        box-shadow: 0 0 10px #ff007f;
+      }
+
+      /* === Popup Image Preview === */
       .popup {
-        position: absolute;
-        top: -10px;
+        position: fixed; /* Changed from absolute to fixed */
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         background: #111;
-        border: 2px solid #ff007f;
+        border: 2px solid #a865fa;
         border-radius: 10px;
         padding: 10px;
         display: none;
-        z-index: 10;
+        z-index: 9998;
+        max-width: 90vw;
+        max-height: 90vh;
+        overflow: auto;
+        box-shadow: 0 0 30px rgba(160, 6, 83, 0.7);
       }
+
       .popup img {
-        width: 269px; /* 100px */
+        width: 269px;
         height: auto;
+        display: block;
       }
+
+      /* .popup button {
+    margin-top: 10px;
+    background: #b6055e;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
       .popup button {
-        margin-top: 10px;
-        background: #ff007f;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #0e0007;
         color: white;
         border: none;
         padding: 0.5rem;
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: 0 0 8px #ff007f;
+        z-index: 9999;
+      }
+
+      /* === Grid / List View Toggle === */
+      .view-toggle {
+        text-align: center;
+        margin-top: 2rem;
+        display: none; /* hidden by default, shown via media query */
+      }
+
+      .view-toggle button {
+        margin: 0 0.5rem;
+        padding: 0.7rem 1.2rem;
+        background-color: #222;
+        color: #fff;
+        border: 1px solid #444;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .view-toggle button:hover {
+        background-color: #ad0d5d;
+        transform: scale(1.05);
+      }
+
+      @media (min-width: 769px) {
+        .view-toggle {
+          display: block;
+        }
+      }
+
+      /* === Grid & List Modes === */
+      .items.grid-view {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+
+      .items.list-view {
         display: flex;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
+      }
+
+      .items.list-view .item {
+        width: 100%;
+      }
+
+      /* === Mobile Toggle Icon === */
+      .item-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #444;
+        border-radius: 50%;
+        padding: 0.5rem;
+        cursor: pointer;
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .item-icon {
+          display: block;
+        }
       }
     </style>
   </head>
@@ -170,6 +287,11 @@
       />
     </section>
 
+    <div class="view-toggle" id="viewToggle">
+      <button onclick="setViewMode('grid')">🔳 Grid View</button>
+      <button onclick="setViewMode('list')">📃 List View</button>
+    </div>
+
     <!-- Section 3: Interactive Item List -->
     <section class="items">
       <div
@@ -177,16 +299,21 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>3-pin wire</h3>
         <p>₹80</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          click & Hold
+        </div>
         <div class="popup">
           <img
             src="EDM-expense-site/src/assets/images/01.png"
             alt="3-pin wire"
           />
           <a href="https://amazon.in/dp/B0D35W8P59" target="_blank">
-            <button>SHOPPING 🛒</button>
+            <button>🛒</button>
           </a>
         </div>
       </div>
@@ -196,9 +323,14 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Bridge Rectifier (DB2510)</h3>
         <p>₹170</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
             src="EDM-expense-site/src/assets/images/02.png"
@@ -208,7 +340,7 @@
             href="https://www.linkedin.com/posts/akashdip2001_electronics-engineering-rectifier-activity-7303431382817550339-YMbE"
             target="_blank"
           >
-            <button>SHOPPING 🛒</button>
+            <button>🛒</button>
           </a>
         </div>
       </div>
@@ -218,28 +350,38 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>100W Filament Bulb</h3>
         <p>₹65</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
             src="EDM-expense-site/src/assets/images/electrical warning 02.jpg"
             alt="Filament Bulb"
           />
-          <a href="https://www.amazon.in/dp/B08XYM8T6W" target="_blank">
-            <button>SHOPPING 🛒</button>
-          </a>
+          <!-- <a href="https://www.amazon.in/dp/B08XYM8T6W" target="_blank">
+            <button>🛒</button>
+          </a> -->
         </div>
       </div>
 
-      <div
+      <!-- <div
         class="item"
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Holder</h3>
         <p>₹40</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
             src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
@@ -249,66 +391,30 @@
             <button>🛒</button>
           </a>
         </div>
-      </div>
+      </div> -->
 
       <div
         class="item"
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Brass Rod (5mm x 30cm)</h3>
         <p>₹291</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
-            src="https://private-user-images.githubusercontent.com/81384987/435449646-60e8dce1-5a89-4365-88b7-761fd95d21ca.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY2NTQ5MDUsIm5iZiI6MTc0NjY1NDYwNSwicGF0aCI6Ii84MTM4NDk4Ny80MzU0NDk2NDYtNjBlOGRjZTEtNWE4OS00MzY1LTg4YjctNzYxZmQ5NWQyMWNhLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTA3VDIxNTAwNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI5MTJjMmE1ZjRkNmE4NWE3YzY3NzIzYjc2NTMwZmVkOTRjZGEzMjA1OGIxMjVlYmRiZmFmMTQ2OWZkMjY0MTMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.hSr-UTOzksoR0qi3fP6SGKD5DGHIrT_-jDmruzbwqPE"
+            src="/EDM/EDM-expense-site/src/assets/images/Brass Rod.jpg"
             alt="Brass Rod"
           />
           <a
             href="https://www.amazon.in/s?k=Brass+Rod+%285mm+x+30cm%29"
             target="_blank"
           >
-            <button>SHOPPING 🛒</button>
-          </a>
-        </div>
-      </div>
-
-      <div
-        class="item"
-        onmouseenter="showPopup(this)"
-        onmouseleave="hidePopup(this)"
-        onclick="togglePopup(this)"
-      >
-        <h3>Aluminium Sheet</h3>
-        <p>₹257</p>
-        <div class="popup">
-          <img
-            src="https://private-user-images.githubusercontent.com/81384987/435449635-8cc56f36-db92-4647-ac98-ce43f82bcddb.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDY2NTQ5MDUsIm5iZiI6MTc0NjY1NDYwNSwicGF0aCI6Ii84MTM4NDk4Ny80MzU0NDk2MzUtOGNjNTZmMzYtZGI5Mi00NjQ3LWFjOTgtY2U0M2Y4MmJjZGRiLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTA3VDIxNTAwNVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWUwY2M2MGEwZDdhZGNjNmJjNzM4MTY5NjI0MjczYjFhN2Y1YTgxMmJjYjdlMGNmNGU5YjVjYzQ1NDA3N2I1YmImWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.9qUzy7GvdU1zt3geOn5YXbUHkWpu9l3hh6YN639OBO0"
-            alt="Aluminium Sheet"
-          />
-          <a
-            href="https://www.amazon.in/s?k=Aluminium+Sheet+1mm"
-            target="_blank"
-          >
-            <button>SHOPPING 🛒</button>
-          </a>
-        </div>
-      </div>
-
-      <div
-        class="item"
-        onmouseenter="showPopup(this)"
-        onmouseleave="hidePopup(this)"
-        onclick="togglePopup(this)"
-      >
-        <h3>Plate (work space)</h3>
-        <p>₹120</p>
-        <div class="popup">
-          <img
-            src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
-            alt="Plate"
-          />
-          <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
             <button>🛒</button>
           </a>
         </div>
@@ -319,9 +425,65 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
+      >
+        <h3>Aluminium Sheet</h3>
+        <p>₹257</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
+        <div class="popup">
+          <img
+            src="/EDM/EDM-expense-site/src/assets/images/Aluminium Sheet.jpg"
+            alt="Aluminium Sheet"
+          />
+          <a
+            href="https://www.amazon.in/s?k=Aluminium+Sheet+1mm"
+            target="_blank"
+          >
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
+      >
+        <h3>Plate (work space)</h3>
+        <p>₹120</p>
+        <!-- <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div> -->
+        <!-- <div class="popup">
+          <img
+            src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
+            alt="Plate"
+          />
+          <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
+            <button>🛒</button>
+          </a>
+        </div> -->
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>IGBT H20R1203</h3>
         <p>₹45</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
             src="https://github.com/akashdip2001/EDM/blob/main/setup/Day%2004/IGBT.jpg?raw=true"
@@ -331,47 +493,6 @@
             href="https://www.google.com/search?q=igbt+h20r1203"
             target="_blank"
           >
-            <button>SHOPPING 🛒</button>
-          </a>
-        </div>
-      </div>
-
-      <div
-        class="item"
-        onmouseenter="showPopup(this)"
-        onmouseleave="hidePopup(this)"
-        onclick="togglePopup(this)"
-      >
-        <h3>Heat Sink</h3>
-        <p>₹35</p>
-        <div class="popup">
-          <img
-            src="EDM-expense-site/src/assets/images/04.png"
-            alt="Heat Sink"
-          />
-          <a
-            href="https://www.indiamart.com/proddetail/aluminium-heat-sink-25870236788.html"
-            target="_blank"
-          >
-            <button>SHOPPING 🛒</button>
-          </a>
-        </div>
-      </div>
-
-      <div
-        class="item"
-        onmouseenter="showPopup(this)"
-        onmouseleave="hidePopup(this)"
-        onclick="togglePopup(this)"
-      >
-        <h3>Resistors (2 X 10k, 3 X 1k, 3 X 100E)</h3>
-        <p>₹16 + 9 + 3</p>
-        <div class="popup">
-          <img
-            src="EDM-expense-site/src/assets/images/05.png"
-            alt="Resistors"
-          />
-          <a href="#" target="_blank">
             <button>🛒</button>
           </a>
         </div>
@@ -382,9 +503,65 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
+      >
+        <h3>Heat Sink</h3>
+        <p>₹35</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
+        <div class="popup">
+          <img
+            src="EDM-expense-site/src/assets/images/04.png"
+            alt="Heat Sink"
+          />
+          <a
+            href="https://www.indiamart.com/proddetail/aluminium-heat-sink-25870236788.html"
+            target="_blank"
+          >
+            <button>🛒</button>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
+      >
+        <h3>Resistors (2 X 10k, 3 X 1k, 3 X 100E)</h3>
+        <p>₹16 + 9 + 3</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
+        <div class="popup">
+          <img
+            src="EDM-expense-site/src/assets/images/05.png"
+            alt="Resistors"
+          />
+          <!-- <a href="#" target="_blank">
+            <button>🛒</button>
+          </a> -->
+        </div>
+      </div>
+
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Arduino Nano</h3>
         <p>₹395</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
             src="EDM-expense-site/src/assets/images/setup Day3 02.jpg"
@@ -401,9 +578,14 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>16x2 LCD Display</h3>
         <p>₹206</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
             src="EDM-expense-site/src/assets/images/16x2 LCD Display.jpg"
@@ -420,14 +602,22 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>10k Potentiometer</h3>
         <p>₹25 X 3</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
-          <img src="#" alt="Potentiometer" />
-          <a href="#" target="_blank">
+          <img
+            src="/EDM/EDM-expense-site/src/assets/images/Potentiometer.png"
+            alt="Potentiometer"
+          />
+          <!-- <a href="#" target="_blank">
             <button>🛒</button>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -436,14 +626,22 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
-        <h3>Cap</h3>
-        <p>₹10 X 2</p>
+        <h3>Cap (Potentiometer)</h3>
+        <p>₹5 X 2</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
-          <img src="#" alt="Cap" />
-          <a href="#" target="_blank">
+          <img
+            src="/EDM/EDM-expense-site/src/assets/images/Potentiometer.png"
+            alt="Cap"
+          />
+          <!-- <a href="#" target="_blank">
             <button>🛒</button>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -452,14 +650,22 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Programming Cable</h3>
         <p>₹80</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
-          <img src="#" alt="Programming Cable" />
-          <a href="#" target="_blank">
+          <img
+            src="/EDM/EDM-expense-site/src/assets/images/06.jpg"
+            alt="Programming Cable"
+          />
+          <!-- <a href="#" target="_blank">
             <button>🛒</button>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -468,15 +674,20 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>BC547 Transistor</h3>
         <p>₹15</p>
-        <div class="popup">
+        <!-- <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div> -->
+        <!-- <div class="popup">
           <img src="#" alt="BC547" />
           <a href="#" target="_blank">
             <button>🛒</button>
           </a>
-        </div>
+        </div> -->
       </div>
 
       <div
@@ -484,17 +695,22 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>5V Converter</h3>
         <p>₹85</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
-            src="https://m.media-amazon.com/images/I/61vm9hyTqxL._SL1500_.jpg"
+            src="/EDM/EDM-expense-site/src/assets/images/5V Converter.jpg"
             alt="5V Converter"
           />
-          <a href="https://www.amazon.in/dp/B09YBDCKP6" target="_blank">
+          <!-- <a href="https://www.amazon.in/dp/B09YBDCKP6" target="_blank">
             <button>🛒</button>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -503,17 +719,22 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Boost Converter</h3>
         <p>₹170</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
-            src="https://m.media-amazon.com/images/I/71LQhLJgNkL._SL1500_.jpg"
+            src="/EDM/EDM-expense-site/src/assets/images/Relays & voltage booster.jpg"
             alt="Boost Converter"
           />
-          <a href="https://www.amazon.in/dp/B07HHD4Y8Z" target="_blank">
+          <!-- <a href="https://www.amazon.in/dp/B07HHD4Y8Z" target="_blank">
             <button>🛒</button>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -522,10 +743,15 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Nylon Cable Tie</h3>
         <p>₹65</p>
-        <div class="popup">
+        <!-- <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div> -->
+        <!-- <div class="popup">
           <img
             src="https://m.media-amazon.com/images/I/61yrZ5vRtwL._SL1500_.jpg"
             alt="Cable Tie"
@@ -533,7 +759,7 @@
           <a href="https://www.amazon.in/dp/B07RDZPGVK" target="_blank">
             <button>🛒</button>
           </a>
-        </div>
+        </div> -->
       </div>
 
       <div
@@ -541,10 +767,15 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Cable Clips</h3>
         <p>₹80</p>
-        <div class="popup">
+        <!-- <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div> -->
+        <!-- <div class="popup">
           <img
             src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
             alt="Cable Clips"
@@ -552,7 +783,7 @@
           <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
             <button>🛒</button>
           </a>
-        </div>
+        </div> -->
       </div>
 
       <div
@@ -560,17 +791,22 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>5 volt Red LED</h3>
         <p>₹10 X 2</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
-            src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
+            src="/EDM/EDM-expense-site/src/assets/images/Red LED.jpg"
             alt="Red LED"
           />
-          <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
+          <!-- <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
             <button>🛒</button>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -579,17 +815,22 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Wire (many types)</h3>
         <p>₹120 + 25 + 20 + 32</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
-            src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
+            src="/EDM/EDM-expense-site/src/assets/images/electrical warning 02.jpg"
             alt="Wire"
           />
-          <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
+          <!-- <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
             <button>🛒</button>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -598,17 +839,22 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Wood frame with polish</h3>
         <p>₹2200</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
-            src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
+            src="/EDM/EDM-expense-site/src/assets/images/wooden frame 02.jpg"
             alt="Wood frame"
           />
-          <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
+          <!-- <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
             <button>🛒</button>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -617,10 +863,15 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Buffer</h3>
         <p>₹25 X 4</p>
-        <div class="popup">
+        <!-- <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div> -->
+        <!-- <div class="popup">
           <img
             src="https://m.media-amazon.com/images/I/71XtROuD4zL._SL1500_.jpg"
             alt="Buffer"
@@ -628,7 +879,7 @@
           <a href="https://www.amazon.in/dp/B07P9TLM2R" target="_blank">
             <button>🛒</button>
           </a>
-        </div>
+        </div> -->
       </div>
 
       <div
@@ -636,9 +887,14 @@
         onmouseenter="showPopup(this)"
         onmouseleave="hidePopup(this)"
         onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
       >
         <h3>Holder</h3>
         <p>₹40</p>
+        <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div>
         <div class="popup">
           <img
             src="EDM-expense-site/src/assets/images/03.png"
@@ -648,13 +904,43 @@
             href="https://www.flipkart.com/lamroar-droom-heavy-door-pull-handle-8-inch-main-nickel-silver-pack-1-pieces-stainless-steel/p/itm2aea3c7a19f19"
             target="_blank"
           >
-            <button>SHOPPING 🛒</button>
+            <button>🛒</button>
           </a>
+        </div>
+      </div>
+      <div
+        class="item"
+        onmouseenter="showPopup(this)"
+        onmouseleave="hidePopup(this)"
+        onclick="togglePopup(this)"
+        ontouchstart="handleTouchStart(this)"
+        ontouchend="handleTouchEnd(this)"
+      >
+        <h3>capacitor</h3>
+        <p>₹40</p>
+        <!-- <div class="item-icon" onclick="togglePopup(this.parentElement)">
+          Hold
+        </div> -->
+        <div class="popup">
+          <img
+            src="EDM-expense-site/src/assets/images/450v 100mf.jpg"
+            alt="capacitor"
+          />
+          <!-- <a
+            href="#"
+            target="_blank"
+          >
+            <button>🛒</button>
+          </a> -->
         </div>
       </div>
     </section>
 
     <script>
+      //  Detect Touch Devices
+      const isTouchDevice =
+        "ontouchstart" in window || navigator.maxTouchPoints > 0;
+
       // Auto scroll setup images
       const gallery = document.getElementById("scroll-gallery");
       let autoScroll = true;
@@ -692,17 +978,80 @@
       });
 
       // Popup functionality
-      function showPopup(item) {
-        item.querySelector(".popup").style.display = "block";
+      // function showPopup(item) {
+      //   item.querySelector(".popup").style.display = "block";
+      // }
+      // function hidePopup(item) {
+      //   item.querySelector(".popup").style.display = "none";
+      // }
+      // function togglePopup(item) {
+      //   const popup = item.querySelector(".popup");
+      //   popup.style.display =
+      //     popup.style.display === "block" ? "none" : "block";
+      // }
+      function showPopup(element) {
+        if (!isTouchDevice) {
+          element.querySelector(".popup").style.display = "block";
+        }
       }
-      function hidePopup(item) {
-        item.querySelector(".popup").style.display = "none";
+
+      function hidePopup(element) {
+        if (!isTouchDevice) {
+          element.querySelector(".popup").style.display = "none";
+        }
       }
-      function togglePopup(item) {
-        const popup = item.querySelector(".popup");
-        popup.style.display =
-          popup.style.display === "block" ? "none" : "block";
+
+      function togglePopup(element) {
+        if (isTouchDevice) {
+          const popup = element.querySelector(".popup");
+          const isVisible = popup.style.display === "block";
+          popup.style.display = isVisible ? "none" : "block";
+        }
       }
+
+      // Touch-and-Hold (Long-Press)
+      let pressTimer;
+
+      function handleTouchStart(element) {
+        pressTimer = setTimeout(() => {
+          element.querySelector(".popup").style.display = "block";
+        }, 500); // 0.5 second press
+      }
+
+      function handleTouchEnd(element) {
+        clearTimeout(pressTimer);
+        element.querySelector(".popup").style.display = "none";
+      }
+
+      // Toggling View
+      function setViewMode(mode) {
+        const itemsSection = document.querySelector(".items");
+        if (mode === "grid") {
+          itemsSection.classList.remove("list-view");
+          itemsSection.classList.add("grid-view");
+        } else {
+          itemsSection.classList.remove("grid-view");
+          itemsSection.classList.add("list-view");
+        }
+      }
+
+      document.querySelectorAll(".item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const popup = item.querySelector(".popup");
+          popup.style.display = "block";
+        });
+      });
+
+      // Optional: Set default to grid view on page load
+      window.addEventListener("DOMContentLoaded", () => {
+        const itemsSection = document.querySelector(".items");
+        itemsSection.classList.add("grid-view");
+      });
+
+      // Prevent long press context menu
+      window.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
     </script>
   </body>
 </html>
