@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Electronics Project Showcase</title>
+    <title>EDM</title>
+    <link rel="icon" type="image/png" href="/EDM/image.png">
+
     <style>
       * {
         user-select: none;
@@ -936,6 +938,44 @@
       </div>
     </section>
 
+<!-- Total Cost & Contributors Section -->
+<section style="background:#111; color:#fff; padding:2rem; border-top:2px solid #ff007f; margin-top:3rem;">
+  <h2 style="text-align:center; margin-bottom:1.5rem;">Project Summary</h2>
+
+  <!-- Total Cost Overview -->
+  <div style="text-align:center; font-size:1.5rem; margin-bottom:2rem;">
+    <strong>Total Cost:</strong> ₹<span id="total-cost">0000</span>
+  </div>
+
+  <!-- Contributors Detail Section -->
+  <section style="background:#111; color:#fff; padding:2rem 5vw; border-top:2px solid #ff007f; margin-top:3rem;">
+  <h2 style="text-align:center; margin-bottom:1.5rem;">Project Funding & Contribution</h2>
+
+  <!-- Project Summary Explanation -->
+  <div style="max-width:700px; margin:0 auto; font-size:1rem; line-height:1.6; background:#1c1c1c; padding:1rem; border-radius:10px; border-left:4px solid #ff007f;">
+    <p><strong>Note:</strong> This project was developed and designed entirely by <strong>Akashdip Mahapatra</strong>, who is not a permanent member of the team but volunteered to lead the design, development, and execution process.</p>
+    <p>One of the core team members, <strong>Soumyadeep</strong>, contributed significantly by procuring hardware parts worth ₹800 and also transferred around ₹4000 for project development expenses.</p>
+    <p>As the project budget exceeded ₹4000, Akashdip personally covered the additional costs to ensure the completion and quality of the final output.</p>
+  </div>
+
+  <!-- Financial Breakdown -->
+  <div style="text-align:center; font-size:1.4rem; margin:2rem 0;">
+    <strong>Total Project Cost:</strong> ₹<span id="total-cost">5300</span>
+  </div>
+
+  <!-- Expandable Contributor List -->
+  <details style="max-width:600px; margin:0 auto; background:#1c1c1c; padding:1rem; border-radius:10px; border:1px solid #444;">
+    <summary style="cursor:pointer; font-size:1.2rem; font-weight:bold; color:#ff007f;">View Contributor Details</summary>
+    <ul style="list-style:none; padding-left:1rem; margin-top:1rem;">
+      <li style="margin-bottom:0.8rem;"><strong>Soumyadeep (Team Member):</strong> ₹800 (hardware) + ₹4000 (transfer)</li>
+      <li><strong>Akashdip (Developer):</strong> ₹500 (personal contribution)</li>
+    </ul>
+  </details>
+</section>
+
+
+</section>
+
     <script>
       //  Detect Touch Devices
       const isTouchDevice =
@@ -1052,6 +1092,23 @@
       window.addEventListener("contextmenu", function (e) {
         e.preventDefault();
       });
+
+      window.addEventListener('DOMContentLoaded', () => {
+    const prices = document.querySelectorAll('.item');
+    let total = 0;
+
+    prices.forEach(item => {
+      const text = item.innerText;
+      const match = text.match(/₹(\d+)/g);
+      if (match) {
+        match.forEach(val => {
+          total += parseInt(val.replace(/[₹+ ]/g, ''), 10);
+        });
+      }
+    });
+
+    document.getElementById('total-cost').textContent = total;
+  });
     </script>
   </body>
 </html>
