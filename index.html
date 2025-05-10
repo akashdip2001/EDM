@@ -249,9 +249,59 @@
       .highlight-container.second-highlight:before {
          background: #8c32b7e3; /* New background for second text */
       }
+
+      /* === Intro Message === */
+      /* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+
+/* Cursor + Typewriter */
+.cursor {
+  position: relative;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255,255,255,0.75);
+  font-size: 28px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #fff;
+}
+
+.typewriter-animation {
+  animation: 
+    typewriter 5s steps(50) 1s 1 normal both, 
+    blinkingCursor 500ms steps(50) infinite normal;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinkingCursor {
+  from { border-right-color: rgba(255,255,255,0.75); }
+  to { border-right-color: transparent; }
+}
+
+/* Intro Message Container */
+.intro-message {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #512da8;
+  padding: 1em 2em;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+
     </style>
   </head>
   <body>
+    <div id="intro-message" class="intro-message cursor typewriter-animation">
+      Hi there, It's a&nbsp;<span class="highlight-container"><span class="highlight">DIY EDM ⚡</span></span>
+    </div>
+    
     <!-- Section 1: Responsive Landscape Video -->
     <header>
       <iframe
@@ -1309,6 +1359,24 @@
 
         document.getElementById("total-cost").textContent = total;
       });
+
+      // Intro Message
+      document.addEventListener("DOMContentLoaded", function() {
+    const intro = document.getElementById('intro-message');
+
+    if (localStorage.getItem('visitedBefore')) {
+      // Already visited, hide instantly
+      intro.style.display = 'none';
+    } else {
+      // First-time visit
+      localStorage.setItem('visitedBefore', 'true');
+
+      // Hide after the typewriter animation ends
+      setTimeout(() => {
+        intro.style.display = 'none';
+      }, 6000); // matches animation timing
+    }
+  });
     </script>
   </body>
 </html>
