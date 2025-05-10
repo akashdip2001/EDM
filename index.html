@@ -222,6 +222,33 @@
           display: block;
         }
       }
+
+      /* === highlight === */
+      .highlight-container, .highlight {
+        position: relative;
+      }
+
+      .highlight-container {
+        display: inline-block;
+      }
+      .highlight-container:before {
+        content: " ";
+        display: block;
+        height: 7px;
+        width: 139px;
+        margin-left: -3px;
+        margin-right: -3px;
+        position: absolute;
+        background: #32b7aad1;
+        transform: rotate(356deg);
+        top: 3px;
+        left: -1px;
+        border-radius: 61% 25% 26% 13%;
+        padding: 10px 3px 3px 10px;
+      }
+      .highlight-container.second-highlight:before {
+         background: #8c32b7e3; /* New background for second text */
+      }
     </style>
   </head>
   <body>
@@ -994,9 +1021,9 @@
         >
           <p>
             <strong>Note:</strong> This project was developed and designed
-            entirely by <strong>Akashdip Mahapatra</strong>, who is not a
+            entirely by&nbsp;&nbsp;<span class="highlight-container"><span class="highlight">Akashdip Mahapatra&nbsp;</span></span>, who is not a
             permanent member of the team but volunteered to lead the design,
-            development, and execution process. And Soumyadeep (One of the core team members)
+            development, and execution process. And&nbsp;&nbsp;<span class="highlight-container second-highlight"><span class="highlight">&nbsp;&nbsp;Soumyadeep Koley&nbsp;</span></span> (One of the core team members)
             provided valuable insights during the project development process, with feedbacks and suggestions.
           </p>
           <p>
