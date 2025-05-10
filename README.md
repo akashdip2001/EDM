@@ -1,3 +1,17 @@
+</br>
+</br>
+
+<div style="display: flex; align-items: center; gap: 10px;" align="center">
+  
+# ⭐ click to see the main [**`WebSite`**](https://akashdip2001.github.io/EDM/) ⭐
+</div>
+
+</br>
+</br>
+
+---
+
+
 # EDM
 
 1. 🔵 [This is a old planning page](#)
