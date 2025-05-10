@@ -250,8 +250,8 @@
          background: #8c32b7e3; /* New background for second text */
       }
 
-      /* === Intro Message === */
-      /* Google Fonts */
+/* === Intro Message === */
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
 
 /* Cursor + Typewriter */
@@ -293,6 +293,12 @@
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.4);
   z-index: 1000;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.intro-message.fade-out {
+  opacity: 0;
 }
 
     </style>
@@ -1362,21 +1368,22 @@
 
       // Intro Message
       document.addEventListener("DOMContentLoaded", function() {
-    const intro = document.getElementById('intro-message');
+        const intro = document.getElementById('intro-message');
 
-    if (localStorage.getItem('visitedBefore')) {
-      // Already visited, hide instantly
-      intro.style.display = 'none';
-    } else {
-      // First-time visit
-      localStorage.setItem('visitedBefore', 'true');
+          if (localStorage.getItem('visitedBefore')) {
+          intro.style.display = 'none';
+          } else {
+          localStorage.setItem('visitedBefore', 'true');
 
-      // Hide after the typewriter animation ends
-      setTimeout(() => {
-        intro.style.display = 'none';
-      }, 6000); // matches animation timing
-    }
-  });
+          setTimeout(() => {
+          intro.classList.add('fade-out');
+          setTimeout(() => {
+            intro.style.display = 'none';
+              }, 1000); // matches the CSS transition duration
+            }, 6000); // duration of the typewriter animation
+          }
+      });
+
     </script>
   </body>
 </html>
