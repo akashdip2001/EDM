@@ -301,6 +301,12 @@
   opacity: 0;
 }
 
+.fade-in-title {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
     </style>
   </head>
   <body>
@@ -319,6 +325,11 @@
         sandbox="allow-same-origin allow-scripts">
       </iframe>
     </header>
+
+    <!-- Title -->
+  <div class="text-center text-3xl font-bold mb-6 fade-in-title">
+    ⭐ All <a href="/setup/Day 07 - 20-05-2025/index.html" class="underline text-blue-300 hover:text-blue-500">videos</a> ⭐
+  </div>
 
     <!-- Section 2: Auto-scrolling photo gallery -->
     <section class="auto-scroll-gallery" id="scroll-gallery">
