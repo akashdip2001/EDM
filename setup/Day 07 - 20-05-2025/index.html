@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EDM Image Gallery</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .link {
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .link:hover {
+      color: #a0e9fd;
+    }
+  </style>
+</head>
+<body class="text-white px-4 py-10">
+
+  <!-- Header Image -->
+  <div class="flex justify-center mb-10 fade-in">
+    <img src="05 glass box.jpg" alt="Glass Box" class="rounded-xl shadow-lg w-full max-w-4xl">
+  </div>
+
+  <!-- Title -->
+  <div class="text-center text-3xl font-bold mb-6 fade-in">
+    ⭐ All <a href="https://github.com/akashdip2001/EDM/tree/main/setup/Day%2007%20-%2020-05-2025" class="underline text-blue-300 hover:text-blue-500">Images</a> ⭐
+  </div>
+
+  <!-- Image Gallery -->
+  <div class="flex flex-wrap justify-center gap-8 fade-in">
+    <img src="01 setup.jpg" alt="Setup 1" class="rounded-lg shadow-lg w-full sm:w-5/12 transition-transform transform hover:scale-105 duration-300" />
+    <img src="04 glass.jpg" alt="Glass" class="rounded-lg shadow-lg w-full sm:w-5/12 transition-transform transform hover:scale-105 duration-300" />
+  </div>
+
+  <!-- GitHub Asset Links -->
+  <div class="mt-12 space-y-4 text-center fade-in text-lg">
+    <p><a href="https://github.com/user-attachments/assets/04a446e3-c833-4096-85cb-3776eac0eacf" class="link" target="_blank">🔗 GitHub Asset 1</a></p>
+    <p><a href="https://github.com/user-attachments/assets/e3f906fc-b84a-450a-bb27-baa2c527c212" class="link" target="_blank">🔗 GitHub Asset 2</a></p>
+    <p><a href="https://github.com/user-attachments/assets/501178a4-a94a-43e3-8d1c-b68b0acbc1bb" class="link" target="_blank">🔗 GitHub Asset 3</a></p>
+  </div>
+
+</body>
+</html>
