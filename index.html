@@ -301,12 +301,52 @@
   opacity: 0;
 }
 
-.fade-in-title {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease-out forwards;
-    }
+.video-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem 1.8rem;
+    background: radial-gradient(circle, #ff007f, #8c32b7);
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 0 20px #ff007f;
+    position: relative;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s;
+  }
 
+  .video-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px #ff007f;
+  }
+
+  .play-icon {
+    width: 0;
+    height: 0;
+    border-left: 14px solid white;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 10px #ff007f;
+    }
+    50% {
+      box-shadow: 0 0 25px #ff007f, 0 0 40px #8c32b7;
+    }
+    100% {
+      box-shadow: 0 0 10px #ff007f;
+    }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
     </style>
   </head>
   <body>
@@ -327,9 +367,12 @@
     </header>
 
     <!-- Title -->
-  <div class="text-center text-3xl font-bold mb-6 fade-in-title">
-    ⭐ All <a href="/setup/Day 07 - 20-05-2025/index.html" class="underline text-blue-300 hover:text-blue-500">videos</a> ⭐
-  </div>
+    <div style="text-align: center; margin: 2rem 0;">
+      <a href="/setup/Day 07 - 20-05-2025/index.html" class="video-button">
+        <span class="play-icon"></span>
+        All Videos
+      </a>
+    </div>    
 
     <!-- Section 2: Auto-scrolling photo gallery -->
     <section class="auto-scroll-gallery" id="scroll-gallery">
