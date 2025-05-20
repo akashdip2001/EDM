@@ -22,6 +22,7 @@
     4. 🔴 [Day 04](2025-04-29.md) (❌ Test)
     5. 🟢 [Day 05](2025-04-30.md) (upgrade setup & short circuit protection)
     6. 🟢 [Day 06](2025-05-01.md) (successful ✅🔴)
+    7. 🟢 [Day 07](https://github.com/akashdip2001/EDM/tree/main/setup/Day%2007%20-%2020-05-2025) (upgrade setup & Test ✅)
 3. 🔵 [Wooden setup](setup/wooden_setup.md)
 
 ---
@@ -34,6 +35,16 @@
 > To check the `c++ code`, click to jump [Day-03](2025-04-28.md) & 🟢 the last final code [Day 06](2025-05-01.md)
 
 ---
+
+</br>
+
+https://github.com/user-attachments/assets/04a446e3-c833-4096-85cb-3776eac0eacf
+
+</br>
+
+> This video taken from [`Day 07`](https://github.com/akashdip2001/EDM/tree/main/setup/Day%2007%20-%2020-05-2025)
+
+</br>
 
 ### 🌕 EDM using 555 🌀 ( works in : 10 volt )
 
