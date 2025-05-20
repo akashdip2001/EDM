@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDM Image Gallery</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>EDM pg-2</title>
+    <link rel="icon" type="image/png" href="image.png" />
+
+    <style>
+      body {
+        background: linear-gradient(to right, #1f1c2c, #928dab);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease-out forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .link {
+        color: #fff;
+        transition: color 0.3s;
+      }
+
+      .link:hover {
+        color: #a0e9fd;
+      }
+
+      /* === Header (Full Screen Video or Image) === */
+      header {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      header iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: none;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          height: 52vh; /* Mobile-specific height */
+        }
+      }
+
+      .aspect-w-16 {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      }
+      .aspect-w-16 iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body class="text-white px-4 py-10">
+    <!-- Header Image -->
+    <div class="flex justify-center mb-10 fade-in">
+      <img
+        src="05 glass box.jpg"
+        alt="Glass Box"
+        class="rounded-xl shadow-lg w-full max-w-4xl"
+      />
+    </div>
+
+    <!-- Title -->
+    <div class="text-center text-3xl font-bold mb-6 fade-in">
+      ⭐ All
+      <a
+        href="https://github.com/akashdip2001/EDM/tree/main/setup/Day%2007%20-%2020-05-2025"
+        class="underline text-blue-300 hover:text-blue-500"
+        >Images</a
+      >
+      ⭐
+    </div>
+
+    <!-- Image Gallery -->
+    <div class="flex flex-wrap justify-center gap-8 fade-in">
+      <img
+        src="01 setup.jpg"
+        alt="Setup 1"
+        class="rounded-lg shadow-lg w-full sm:w-5/12 transition-transform transform hover:scale-105 duration-300"
+      />
+      <img
+        src="04 glass.jpg"
+        alt="Glass"
+        class="rounded-lg shadow-lg w-full sm:w-5/12 transition-transform transform hover:scale-105 duration-300"
+      />
+    </div>
+
+    <!-- Video Gallery Section -->
+    <section class="mt-16 fade-in">
+      <h2 class="text-center text-2xl font-semibold mb-8">
+        🎥 Featured Videos
+      </h2>
+
+      <!-- Row 1: Single Full-width Video -->
+      <div class="w-full max-w-5xl mx-auto mb-10">
+        <div
+          class="relative"
+          style="
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+          "
+        >
+          <iframe
+            src="https://www.youtube.com/embed/O7raso1Gs9w?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            class="absolute top-0 left-0 w-full h-full"
+            sandbox="allow-same-origin allow-scripts"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Row 2: Two Side-by-Side Videos -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <!-- Video 2 -->
+        <div
+          class="relative"
+          style="
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+          "
+        >
+          <iframe
+            src="https://www.youtube.com/embed/xjK3w_qXGLA?mute=1&controls=1&modestbranding=1&rel=0"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            class="absolute top-0 left-0 w-full h-full"
+            sandbox="allow-same-origin allow-scripts"
+          ></iframe>
+        </div>
+
+        <!-- Video 3 -->
+        <div
+          class="relative"
+          style="
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+          "
+        >
+          <iframe
+            src="https://www.youtube.com/embed/Ta8PTYOnr4k?mute=1&controls=1&modestbranding=1&rel=0"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            class="absolute top-0 left-0 w-full h-full"
+            sandbox="allow-same-origin allow-scripts"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Asset Links -->
+    <div class="mt-12 space-y-4 text-center fade-in text-lg">
+      <p>
+        <a
+          href="https://github.com/user-attachments/assets/04a446e3-c833-4096-85cb-3776eac0eacf"
+          class="link"
+          target="_blank"
+          >🔗 GitHub Asset 1</a
+        >
+      </p>
+      <p>
+        <a
+          href="https://github.com/user-attachments/assets/e3f906fc-b84a-450a-bb27-baa2c527c212"
+          class="link"
+          target="_blank"
+          >🔗 GitHub Asset 2</a
+        >
+      </p>
+      <p>
+        <a
+          href="https://github.com/user-attachments/assets/501178a4-a94a-43e3-8d1c-b68b0acbc1bb"
+          class="link"
+          target="_blank"
+          >🔗 GitHub Asset 3</a
+        >
+      </p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/aspect-ratio@0.2.1/dist/aspect-ratio.min.js"></script>
+  </body>
+</html>
